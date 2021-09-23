@@ -44,5 +44,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mBinding.buttonIntentParcelable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 }

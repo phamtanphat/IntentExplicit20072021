@@ -9,6 +9,8 @@ import android.util.Log;
 import com.example.intentexplicit20072021.databinding.ActivityMain2Binding;
 import com.example.intentexplicit20072021.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+
 public class MainActivity2 extends AppCompatActivity {
 
     ActivityMain2Binding main2Binding;
@@ -31,8 +33,8 @@ public class MainActivity2 extends AppCompatActivity {
         // 2 : Lấy dữ liệu dạng object
         Intent intent = getIntent();
         if (intent != null){
-            User user = (User) intent.getSerializableExtra("user");
-            Log.d("BBB",user.toString());
+            ArrayList<User> users = (ArrayList<User>) intent.getSerializableExtra("user");
+            Log.d("BBB",users.size() + "");
         }
 
     }

@@ -9,6 +9,8 @@ import android.view.View;
 import com.example.intentexplicit20072021.databinding.ActivityMainBinding;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,9 +34,12 @@ public class MainActivity extends AppCompatActivity {
         mBinding.buttonIntentObject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                User user = new User("Nguyễn Văn A",20);
+                ArrayList<User> userArrayList = new ArrayList<>();
+                userArrayList.add(new User("Nguyễn Văn A",20));
+                userArrayList.add(new User("Nguyễn Văn B",30));
+                userArrayList.add(new User("Nguyễn Văn C",40));
                 Intent intent = new Intent(MainActivity.this,MainActivity2.class);
-                intent.putExtra("user", user);
+                intent.putExtra("user", userArrayList);
                 startActivity(intent);
             }
         });

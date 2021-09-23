@@ -8,6 +8,8 @@ import android.view.View;
 
 import com.example.intentexplicit20072021.databinding.ActivityMainBinding;
 
+import java.io.Serializable;
+
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding mBinding;
@@ -26,5 +28,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mBinding.buttonIntentObject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                User user = new User("Nguyễn Văn A",20);
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+            }
+        });
+
     }
 }

@@ -31,10 +31,18 @@ public class MainActivity2 extends AppCompatActivity {
 //        }
 
         // 2 : Lấy dữ liệu dạng object
+//        Intent intent = getIntent();
+//        if (intent != null){
+//            ArrayList<User> users = (ArrayList<User>) intent.getSerializableExtra("user");
+//            Log.d("BBB",users.size() + "");
+//        }
+
+        // 3 : Lây dữ liệu theo Parcelable
         Intent intent = getIntent();
+
         if (intent != null){
-            ArrayList<User> users = (ArrayList<User>) intent.getSerializableExtra("user");
-            Log.d("BBB",users.size() + "");
+            ArrayList<Client> clients = intent.getParcelableArrayListExtra("clients");
+            Log.d("BBB",clients.size() + "");
         }
 
     }

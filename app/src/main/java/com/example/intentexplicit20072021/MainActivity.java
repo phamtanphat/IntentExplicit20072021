@@ -47,7 +47,13 @@ public class MainActivity extends AppCompatActivity {
         mBinding.buttonIntentParcelable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ArrayList<Client> clients = new ArrayList<>();
+                clients.add(new Client("1","Tèo"));
+                clients.add(new Client("2","Ty"));
 
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                intent.putParcelableArrayListExtra("clients",clients);
+                startActivity(intent);
             }
         });
 

@@ -1,10 +1,12 @@
 package com.example.intentexplicit20072021;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.intentexplicit20072021.databinding.ActivityMainBinding;
 
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,MainActivity2.class);
                 intent.putExtra("string","Hello Main 2");
                 intent.putExtra("integer",10);
-                startActivity(intent);
+                startActivityForResult(intent,123);
             }
         });
 
@@ -57,5 +59,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == 123 && resultCode == RESULT_OK && data != null){
+            Bundle bundle = data.getBundleExtra("bundle");
+            if (bundle != null){
+                String message = bundle.getString("string");
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

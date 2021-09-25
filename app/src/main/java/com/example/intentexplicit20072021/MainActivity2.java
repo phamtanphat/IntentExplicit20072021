@@ -38,12 +38,23 @@ public class MainActivity2 extends AppCompatActivity {
 //        }
 
         // 3 : Lây dữ liệu theo Parcelable
-        Intent intent = getIntent();
+//        Intent intent = getIntent();
+//
+//        if (intent != null){
+//            ArrayList<Client> clients = intent.getParcelableArrayListExtra("clients");
+//            Log.d("BBB",clients.size() + "");
+//        }
 
-        if (intent != null){
-            ArrayList<Client> clients = intent.getParcelableArrayListExtra("clients");
-            Log.d("BBB",clients.size() + "");
-        }
+    }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(MainActivity2.this,MainActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("string","Come back main");
+        intent.putExtra("bundle",bundle);
+        setResult(RESULT_OK,intent);
+        finish();
+        super.onBackPressed();
     }
 }
